@@ -2,6 +2,51 @@
 
 {% block mainContent %}
 
-<h1> This is the simple page</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 class="display-8">Flask Calulator</h1>
+    <p class="lead">You can try out </p>
+    </div>
+</div>
+
+<form class="container">
+    <div class="row"> 
+        <div class="col-lg-2 col-md-3">
+            <input type="number" name="FirstNum" class="form-control" placeholder="Insert First Number">
+        </div>
+
+        <div class="col-lg-2"> 
+            <select id="SelectOp" class="form-control" name="Operation">
+                <option selected>Selection...</option>
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+        </div>
+
+
+        <div class="col-lg-2 col-md-3">
+            <input type="number" name="SecNum" class="form-control" placeholder="Insert Second Number">
+        </div>
+
+        <div class="col-lg-3">
+            <input type="submit" name="Submit" class="btn btn-primary" value="Calculate">
+        </div>
+    </div>
+
+
+
+    <div class="row mt-3">
+        <div class="col-lg-1">
+            <div class="text-center">=</div>
+        </div>
+
+        <div class="col-lg-3">
+            <input type="text" name="Result" class="form-control" placeholder="Result">
+
+    </div>
+
+</form>
 
 {% endblock %}

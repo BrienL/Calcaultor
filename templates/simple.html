@@ -4,53 +4,50 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-    <h1 class="display-8">Flask Calulator</h1>
+    <h1 class="display-8">Macro Calculator</h1>
     <p class="lead">You can try out </p>
     </div>
 </div>
 
 <form class="container" action="{{url_for('calculate')}}" method="POST">
     <div class="row"> 
-        <div class="col-lg-2 col-md-3">
-            <input type="number" name="FirstNum" class="form-control" placeholder="Insert First Number" required>
+        <div class="col-lg-3 col-md-4">
+            <input type="number" name="CaloriesNum" class="form-control" placeholder="Insert Amount of Calories" required>
         </div>
 
-        <div class="col-lg-2"> 
-            <select id="SelectOp" class="form-control" name="Operation" required>
-                <option value="">Selection...</option>
-                <option value="plus">+</option>
-                <option value="minus">-</option>
-                <option value="multiply">*</option>
-                <option value="divide">/</option>
-            </select>
+        <div class="col-lg-3 col-md-4">
+            <input type="number" name="ProtienNum" class="form-control" placeholder="Insert Amount of Protien" required>
         </div>
 
-
-        <div class="col-lg-2 col-md-3">
-            <input type="number" name="SecNum" class="form-control" placeholder="Insert Second Number" required>
+        <div class="col-lg-3 col-md-4">
+            <input type="number" name="FiberNum" class="form-control" placeholder="Insert Amount of Fiber" required>
         </div>
-
-        <div class="col-lg-3">
-            <input type="submit" name="Submit" class="btn btn-primary" value="Calculate">
-        </div>
-
-        <div class="col-lg-3">
-            <div class="alert {{colour}}">{{note}}</div>
-
-        </div>
-
     </div>
 
 
 
     <div class="row mt-3">
-        <div class="col-lg-1">
-            <div class="text-center">=</div>
+        <div class="col-lg-3 col-md-4">
+            <input type="text" name="TotalCalories" class="form-control" placeholder="Before Calories" value="{{CaloriesTotal}}">
         </div>
 
-        <div class="col-lg-3">
-            <input type="text" name="Result" class="form-control" placeholder="Result" value="{{result}}">
+        <div class="col-lg-3 col-md-4">
+            <input type="text" name="TotalProtien" class="form-control" placeholder="Before Protien" value="{{ProtienTotal}}">
+        </div>
 
+        <div class="col-lg-3 col-md-4">
+            <input type="text" name="TotalFiber" class="form-control" placeholder="Before Fiber" value="{{FiberTotal}}">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-10 col-md-10">
+            <input type="text" name="ResultNutrience" class="form-control" placeholder="Resulting Nutrience" value="{{result}}">
+        <div>
+            
+        <div class="col-lg-3">
+            <input type="submit" class="btn btn-primary" value="calculate">
+        </div>
     </div>
 
 </form>

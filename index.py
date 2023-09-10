@@ -1,5 +1,9 @@
 from flask import Flask, render_template, url_for, request
 
+CaloriesTotal = 0
+ProtienTotal = 0
+FiberTotal = 0
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -12,28 +16,28 @@ def simple():
 
 @app.route("/calculate", methods=["POST"])
 def calculate():
-    First_Num = int(request.form["FirstNum"])
-    Operation = request.form["Operation"]
-    Second_Num = int(request.form["SecNum"])
-    note = ""
-    colour = "alert-success"
-    if Operation == "plus":
-        result = First_Num + Second_Num
-        note = "Addition was performed successfully"
-    elif Operation == "minus":
-        result = First_Num - Second_Num
-        note = "Subtraction was performed successfully"
-    elif Operation == "multiply":
-        result = First_Num * Second_Num
-        note = "Multiplication was performed successfully"
-    elif Operation == "divide": 
-        result = First_Num / Second_Num
-        note = "Division was performed successfully"   
-    else:
-        note = "There is an error please try again"
-        return render_template("simple.html", note=note)
-        colour="alert-danger"
-    return render_template("simple.html", result=result, note=note, colour=colour)
+    Calories_Num = int(request.form["CaloriesNum"])
+    Protien_Num = int(request.form["ProtienNum"])
+    Fiber_Num = int(request.form["FiberNum"])
+    global CaloriesTotal
+    global ProtienTotal
+    global FiberTotal
+    CaloriesTotal += Calories_Num 
+    ProtienTotal += Protien_Num
+    FiberTotal += Fiber_Num
+    result = "Calories: " + str(CaloriesTotal) + " Protien: " + str(ProtienTotal) + " Fiber: " + str(FiberTotal)
+    return render_template("simple.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
+
+@app.route("/reset", methods=["POST"])
+def reset():
+    global CaloriesTotal
+    global ProtienTotal
+    global FiberTotal
+    CaloriesTotal = 0
+    ProtienTotal = 0
+    FiberTotal = 0
+    result = "Calories: " + str(CaloriesTotal) + " Protien: " + str(ProtienTotal) + " Fiber: " + str(FiberTotal)
+    return render_template("simple.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
 
 
 if __name__ == "__main__":

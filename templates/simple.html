@@ -9,25 +9,25 @@
     </div>
 </div>
 
-<form class="container">
+<form class="container" action="{{url_for('calculate')}}" method="POST">
     <div class="row"> 
         <div class="col-lg-2 col-md-3">
-            <input type="number" name="FirstNum" class="form-control" placeholder="Insert First Number">
+            <input type="number" name="FirstNum" class="form-control" placeholder="Insert First Number" required>
         </div>
 
         <div class="col-lg-2"> 
-            <select id="SelectOp" class="form-control" name="Operation">
-                <option selected>Selection...</option>
-                <option>+</option>
-                <option>-</option>
-                <option>*</option>
-                <option>/</option>
+            <select id="SelectOp" class="form-control" name="Operation" required>
+                <option value="">Selection...</option>
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
             </select>
         </div>
 
 
         <div class="col-lg-2 col-md-3">
-            <input type="number" name="SecNum" class="form-control" placeholder="Insert Second Number">
+            <input type="number" name="SecNum" class="form-control" placeholder="Insert Second Number" required>
         </div>
 
         <div class="col-lg-3">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-lg-3">
-            <input type="text" name="Result" class="form-control" placeholder="Result">
+            <input type="text" name="Result" class="form-control" placeholder="Result" value="{{result}}">
 
     </div>
 

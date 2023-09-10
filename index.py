@@ -26,7 +26,7 @@ def calculate():
     ProtienTotal += Protien_Num
     FiberTotal += Fiber_Num
     result = "Calories: " + str(CaloriesTotal) + " Protien: " + str(ProtienTotal) + " Fiber: " + str(FiberTotal)
-    return render_template("simple.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
+    return render_template("index.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
 
 @app.route("/reset", methods=["POST"])
 def reset():
@@ -37,7 +37,7 @@ def reset():
     ProtienTotal = 0
     FiberTotal = 0
     result = "Calories: " + str(CaloriesTotal) + " Protien: " + str(ProtienTotal) + " Fiber: " + str(FiberTotal)
-    return render_template("simple.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
+    return render_template("index.html", result=result, CaloriesTotal=CaloriesTotal, ProtienTotal=ProtienTotal, FiberTotal=FiberTotal)
 
 
 if __name__ == "__main__":
